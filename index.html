@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jto do list</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Supherhero">
+    <meta name="keywords" content="programming hero,learn programming">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/vnd.microsoft.icon">
+    
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+ul li{cursor:pointer;
+    color:white;
+    background-color:blue;
+    font-size:18px;
+    padding:12px 8px 12px 40px;
+    transition:0.2s;
+}
+ ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+ 
+ li:nth-child(odd){
+     background-color:teal;
+ }
+ 
+</style>
+</head>
+<body>
+<div class="w3-container w3-card">
+<header style class="w3-red w3-card w3-center w3-padding w3-margin">
+<h3>JOHNSON TO-DO LIST</h3>
+<input id="input"type="text" class=" w3-border w3-input" placeholder="Title...">
+<button id="add"style="width:100%"class="w3-button w3-padding  w3-hover-grey w3-grey">Add</button>
+</header>
+<ul id="ul" class="w3-ul w3-card">
+
+
+</ul>
+</div>
+<!--main js-->
+<script>
+let btn = document.getElementById("add");
+let input = document.getElementById("input");
+let ul = document.getElementById("ul")
+btn.addEventListener("click",myList);
+function myList(){
+if(input.value == ""){
+    alert("pls type something😇")
+}
+else{const para = document.createElement("li");
+const node = document.createTextNode(input.value);
+para.appendChild(node);
+ul.appendChild(para);
+var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "w3-button w3-hover-none w3-transparent w3-right";
+  span.appendChild(txt);
+  para.appendChild(span);
+span.addEventListener("click",clear)
+function clear(){
+    this.parentElement.style.display="none";
+}
+input.value =""}
+}
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+</script>
+</body>
+</html>
